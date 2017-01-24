@@ -1,17 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Pointer from './Pointer'
+
 
 class App extends Component {
+
+  state = {
+    x: 0,
+    y: 0,
+    down: false,
+  }
+
+  setPos = (x, y) => {
+    this.setState({x, y})
+  }
+
+  setDown = (down) => {
+    this.setState({down})
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+        <Pointer
+          setPos={this.setPos}
+          setDown={this.setDown}
+        />
+        <p>
+          X Position: {this.state.x}
+        </p>
+        <p>
+          Y Position: {this.state.y}
+        </p>
+        <p>
+          Down?: {this.state.down ? 'Yes' : 'No'}
         </p>
       </div>
     );
