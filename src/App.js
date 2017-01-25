@@ -19,21 +19,23 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
         <Pointer
           setPos={this.setPos}
           setDown={this.setDown}
         />
-        <p>
-          X Position: {this.state.x}
-        </p>
-        <p>
-          Y Position: {this.state.y}
-        </p>
-        <p>
-          Down?: {this.state.down ? 'Yes' : 'No'}
-        </p>
+        <svg>
+          <line
+            x1="0"
+            y1="0"
+            x2={this.state.x}
+            y2={this.state.y}
+            strokeWidth="1"
+            stroke="black"
+          />
+        </svg>
       </div>
     );
   }
